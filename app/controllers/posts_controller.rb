@@ -15,7 +15,7 @@ class PostsController < ApplicationController
       @post_form.save
       redirect_to root_path
     else
-      render :new
+      render :new, status: :unprocessable_entity
     end
   end
 
@@ -31,7 +31,7 @@ class PostsController < ApplicationController
       @post_form.update(post_form_params, @post)
       redirect_to root_path
     else
-      render :edit
+      render :edit, status: :unprocessable_entity
     end
   end
 
