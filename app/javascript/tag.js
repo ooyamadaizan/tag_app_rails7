@@ -17,6 +17,11 @@ document.addEventListener("turbo:load", () => {
           childElement.setAttribute("id", tag.id);
           childElement.innerHTML = tag.tag_name;
           searchResult.appendChild(childElement);
+          const clickElement = document.getElementById(tag.id);
+          clickElement.addEventListener("click", () => {
+            document.getElementById("post_form_tag_name").value = clickElement.textContent;
+            clickElement.remove();
+          });
         });
       };
     });
